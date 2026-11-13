@@ -385,6 +385,128 @@
         grid-template-columns: 1fr 1fr;
         gap: 18px;
       }
+      /* 面談を受けて */
+      .heard {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      .heard > div {
+        padding: 26px 28px;
+      }
+      .heard .said {
+        border: 2px solid var(--ink);
+      }
+      .heard .first {
+        border: 2px solid var(--verm);
+        background: var(--verm-wash);
+      }
+      .heard .tag {
+        display: inline-block;
+        font-size: 15px;
+        font-weight: 700;
+        padding: 2px 12px;
+        margin-bottom: 12px;
+        color: #fff;
+        background: var(--ink);
+      }
+      .heard .first .tag {
+        background: var(--verm-deep);
+      }
+      .heard ul {
+        margin: 8px 0 0;
+        padding-left: 1.2em;
+      }
+      .heard li {
+        margin-bottom: 6px;
+      }
+      .heard .price-now {
+        font-family: var(--num);
+        font-weight: 600;
+        font-size: 56px;
+        line-height: 1;
+        color: var(--ink);
+        margin: 6px 0 4px;
+      }
+      .heard .price-now small {
+        font-family: var(--display);
+        font-size: 20px;
+        font-weight: 700;
+        margin-left: 4px;
+      }
+      .safe4 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        border: 1px solid var(--line);
+        margin-top: 24px;
+        counter-reset: sf;
+      }
+      .safe4 > div {
+        padding: 20px;
+        border-right: 1px solid var(--line);
+        counter-increment: sf;
+      }
+      .safe4 > div:last-child {
+        border-right: 0;
+      }
+      .safe4 > div::before {
+        content: counter(sf);
+        font-family: var(--num);
+        font-weight: 600;
+        font-size: 34px;
+        color: var(--verm-deep);
+        display: block;
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+      .safe4 h3 {
+        font-size: 19px;
+      }
+      .safe4 p {
+        font-size: 17px;
+        line-height: 1.7;
+        margin: 0;
+      }
+      .card.focus {
+        border-left-color: var(--verm);
+        background: var(--verm-wash);
+      }
+      .card .badge {
+        align-self: flex-start;
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        background: var(--verm-deep);
+        padding: 1px 10px;
+        margin-bottom: 6px;
+      }
+      @media (max-width: 860px) {
+        .heard {
+          grid-template-columns: 1fr;
+        }
+        .safe4 {
+          grid-template-columns: 1fr 1fr;
+        }
+        .safe4 > div:nth-child(2) {
+          border-right: 0;
+        }
+        .safe4 > div:nth-child(-n + 2) {
+          border-bottom: 1px solid var(--line);
+        }
+      }
+      @media (max-width: 480px) {
+        .safe4 {
+          grid-template-columns: 1fr;
+        }
+        .safe4 > div {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+        .safe4 > div:last-child {
+          border-bottom: 0;
+        }
+      }
       .card {
         border: 1px solid var(--line);
         border-left: 5px solid var(--blue);
@@ -837,18 +959,18 @@
     <div class="top">
       <div class="wrap">
         <span><b>COMIX</b>　株式会社コミクス</span>
-        <span>2026年11月13日　ご説明資料</span>
+        <span>2026年11月13日　面談後の改訂版</span>
       </div>
     </div>
 
     <header class="hero">
       <div class="wrap">
-        <div class="to">日立建設株式会社 御中</div>
+        <div class="to">日立建設株式会社　代表取締役 上村 隆晃 様</div>
         <h1>
           現場と判断は、人に。<br /><em>書類・段取り・発信</em>は、生成AIに。
         </h1>
         <p class="lead">
-          創業100年を超える御社の現場力はそのままに、現場を支える「書く・調べる・まとめる」仕事を生成AIへ移すためのご支援を、一覧にまとめました。各項目に、提供するプランと費用を記載しています。
+          本日の面談でうかがった内容を反映し、最初の一歩である「安全に使える環境づくり」と、その先に実施できるご支援を一覧にまとめました。各項目に、提供するプランと費用を記載しています。
         </p>
         <div class="facts">
           <div>
@@ -863,9 +985,7 @@
           </div>
           <div>
             <div class="n accent">20<small>万円〜／月</small></div>
-            <p>
-              生成AI活用支援パック ベーシックの月額（税別）。単発の診断は30万円
-            </p>
+            <p>本日ご案内した始め方の月額（税別）。単発の診断は30万円</p>
           </div>
         </div>
       </div>
@@ -874,6 +994,9 @@
     <nav class="toc" aria-label="目次">
       <div class="wrap">
         <ol>
+          <li>
+            <a href="#s0"><span>00</span>面談を受けて</a>
+          </li>
           <li>
             <a href="#s1"><span>01</span>御社の取り組み</a>
           </li>
@@ -890,7 +1013,7 @@
             <a href="#s5"><span>05</span>提供プランと費用</a>
           </li>
           <li>
-            <a href="#s6"><span>06</span>始め方の3案</a>
+            <a href="#s6"><span>06</span>その先の広げ方</a>
           </li>
           <li>
             <a href="#s7"><span>07</span>進め方と効果の測り方</a>
@@ -903,6 +1026,74 @@
     </nav>
 
     <main>
+      <section id="s0">
+        <div class="wrap">
+          <div class="sec-no">00</div>
+          <h2>本日うかがったことと、最初の一歩</h2>
+          <p class="intro">
+            2026年11月13日の面談でうかがった内容をもとに、この資料を見直しました。いちばん気にしておられた「社内の情報をどこまで入力してよいか」を、最初に片づける進め方です。
+          </p>
+          <div class="heard">
+            <div class="said">
+              <span class="tag">本日うかがったこと</span>
+              <h3>使い始めているからこそ、線引きをはっきりさせたい</h3>
+              <ul>
+                <li>
+                  生成AI（Claude）を、スマートフォンとパソコンの両方ですでにお使いです。
+                </li>
+                <li>
+                  ファイルを追加して使う場面があり、社内の情報をどこまで入力してよいかが気になっておられます。
+                </li>
+                <li>そこがはっきりすればうれしい、とのお話でした。</li>
+              </ul>
+            </div>
+            <div class="first">
+              <span class="tag">本日ご案内した始め方</span>
+              <h3>安全に使える環境を、先に整える</h3>
+              <div class="price-now">20<small>万円／月（税別）</small></div>
+              <ul>
+                <li>
+                  安全に使うための設定を、御社のパソコン環境に合わせて当社が支援します。設定が終わるまで対応し、CIOの橋本が担当します。
+                </li>
+                <li>定例の打合せは30分×2回。代表の鈴木と橋本が入ります。</li>
+                <li>
+                  設定のあとは、日報データの集計、経費精算、勤怠データの集計、アンケート結果の処理など、当社の実務テンプレートを御社の環境で使える形にします。
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="safe4">
+            <div>
+              <h3>入れてよい情報を決める</h3>
+              <p>
+                発注者の非公開情報、個人情報、社内資料を区分し、入力してよい範囲を文書にします。
+              </p>
+            </div>
+            <div>
+              <h3>作業する場所を限る</h3>
+              <p>
+                生成AIが読み書きできるフォルダを決め、その外には触れさせません。
+              </p>
+            </div>
+            <div>
+              <h3>してはいけない操作を決める</h3>
+              <p>
+                削除、外部への公開、パスワードの読み取りなどを、あらかじめ禁止に設定します。
+              </p>
+            </div>
+            <div>
+              <h3>実行の前に検査する</h3>
+              <p>
+                危険な操作を検知したら止める仕組みを入れ、人が確認してから進めます。
+              </p>
+            </div>
+          </div>
+          <p class="cap" style="margin-top: 14px">
+            契約期間などの条件は、あらためてご提示します。
+          </p>
+        </div>
+      </section>
+
       <section id="s1">
         <div class="wrap">
           <div class="sec-no">01</div>
@@ -935,7 +1126,7 @@
             </div>
           </div>
           <p class="cap" style="margin-top: 14px">
-            左の列は御社Webサイトの公開情報（2026年11月13日に確認）によります。右の列は、建設業で一般に時間がかかるとされる仕事を当社が挙げたもので、御社の実際の課題は面談でうかがったうえで見直します。
+            左の列は御社Webサイトの公開情報（2026年11月13日に確認）によります。右の列は、建設業で一般に時間がかかるとされる仕事を当社が挙げたものです。本日の面談では業務ごとの課題まではうかがっていないため、今後うかがう内容に合わせて見直します。
           </p>
         </div>
       </section>
@@ -1126,7 +1317,9 @@
           <div class="sec-no">04</div>
           <h2>具体的に実施できる支援一覧（20項目）</h2>
           <p class="intro">
-            各項目の下段に、想定する提供プランと費用（税別）を記載しています。どの項目から始めるかは、面談でうかがう優先順位に合わせて決めます。生成AIが作るのは下書きまでで、内容の確認と最終判断は御社の技術者・担当者が行う前提です。
+            各項目の下段に、想定する提供プランと費用（税別）を記載しています。本日うかがったご関心に直接お応えするのは
+            D3
+            です。ほかの項目は、安全に使える環境が整ったあとに、優先順位をうかがって選びます。生成AIが作るのは下書きまでで、内容の確認と最終判断は御社の技術者・担当者が行う前提です。
           </p>
 
           <div class="area">
@@ -1399,12 +1592,13 @@
               </article>
               <article class="card">
                 <span class="id">D2</span>
-                <h4>総務・経理・不動産の文書づくり</h4>
+                <h4>総務・経理・不動産の文書と集計</h4>
                 <p>
-                  稟議書、報告書、社外メール、不動産物件の紹介文などの下書きを、部署ごとの言い回しに合わせて作れるようにします。
+                  稟議書、報告書、社外メール、不動産物件の紹介文などの下書きに加え、日報・勤怠データの集計、経費精算、アンケート結果の処理を、当社のテンプレートで短時間に行えるようにします。
                 </p>
                 <p class="out">
-                  <b>できあがるもの：</b>部署別の指示文集、使い方の手引き
+                  <b>できあがるもの：</b
+                  >部署別の指示文集、集計のテンプレート、使い方の手引き
                 </p>
                 <p class="fee">
                   <span class="plan">支援パック ベーシック</span>　<span
@@ -1413,14 +1607,16 @@
                   >
                 </p>
               </article>
-              <article class="card">
+              <article class="card focus">
+                <span class="badge">本日のご関心</span>
                 <span class="id">D3</span>
-                <h4>安全に使うためのルールづくり</h4>
+                <h4>安全に使うためのルールと設定</h4>
                 <p>
-                  発注者の非公開情報や個人情報など、入力してよい情報の線引き、使ってよいツール、確認の手順を、御社の情報管理の方針に合わせて定めます。
+                  発注者の非公開情報や個人情報など、入力してよい情報の線引きを文書にし、作業する場所の限定、禁止する操作の設定、実行前の検査までを御社の環境に入れます。
                 </p>
                 <p class="out">
-                  <b>できあがるもの：</b>生成AI利用の社内ルール、情報区分の一覧
+                  <b>できあがるもの：</b
+                  >生成AI利用の社内ルール、情報区分の一覧、安全設定の済んだ環境
                 </p>
                 <p class="fee">
                   <span class="plan">支援パック ベーシック</span>　<span
@@ -1617,12 +1813,12 @@
       <section id="s6">
         <div class="wrap">
           <div class="sec-no">06</div>
-          <h2>始め方の3案と、費用の合計</h2>
+          <h2>その先の広げ方：3つの案と、費用の合計</h2>
           <p class="intro">
-            組み合わせの例を3つ用意しました。当社が置いたモデルですので、対象の部署と優先順位をうかがって調整します。
+            安全に使える環境が整ったあとの、広げ方の例を3つ用意しました。当社が置いたモデルですので、対象の部署と優先順位をうかがって調整します。
           </p>
           <div class="models">
-            <div class="model reco">
+            <div class="model">
               <span class="lab">案1　まず1部署で確かめる</span>
               <h3>診断のうえ、4名で半年</h3>
               <ul>
@@ -1797,16 +1993,16 @@
             D3）。
           </p>
 
-          <h3 style="margin-top: 44px">本日うかがいたいこと</h3>
+          <h3 style="margin-top: 44px">次にうかがいたいこと</h3>
           <ol class="asks">
+            <li>
+              生成AIに追加しておられるファイルは、どのような種類のものでしょうか（見積、図面、名簿など）。
+            </li>
             <li>
               いま、いちばん時間を取られている書類や作業はどれでしょうか。
             </li>
             <li>
-              すでにお使いの生成AIや、社内で決めておられる利用のルールはありますか。
-            </li>
-            <li>
-              最初に試すなら、どの部署の、どなた（4名まで）が適していそうでしょうか。
+              上村様のほかに、最初に使い始める方はどなたになりそうでしょうか。
             </li>
           </ol>
         </div>
@@ -1818,7 +2014,7 @@
         <h2>注記と出典</h2>
         <ul>
           <li>
-            本資料は、御社Webサイトの公開情報（2026年11月13日に確認）をもとに当社が作成しました。御社の課題にかかわる記述は当社の推定で、面談でうかがう内容に合わせて見直します。
+            本資料は、御社Webサイトの公開情報（2026年11月13日に確認）と、同日の面談でうかがった内容をもとに当社が作成しました。業務ごとの課題にかかわる記述は当社の推定で、今後うかがう内容に合わせて見直します。
           </li>
           <li>
             費用はすべて税別です。「個別お見積り」の項目は、対象と範囲を確認したうえで金額を提示します。
